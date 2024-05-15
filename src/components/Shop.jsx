@@ -1,6 +1,6 @@
 const Shop = function() {
   return (
-    <h1>Shop Page</h1>
+    <h1>Products</h1>
   )
 }
 

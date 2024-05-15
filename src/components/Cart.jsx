@@ -1,6 +1,6 @@
 const Cart = function() {
   return (
-    <h1>Shopping Cart</h1>
+    <h1>Your cart</h1>
   )
 }
 

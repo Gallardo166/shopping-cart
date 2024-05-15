@@ -1,6 +1,6 @@
 const About = function() {
   return (
-    <h1>About Page</h1>
+    <h1>About us</h1>
   )
 }
 
