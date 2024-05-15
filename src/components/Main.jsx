@@ -1,0 +1,9 @@
+const Main = function() {
+  return (
+    <div>
+      <h1>Main page</h1>
+    </div>
+  )
+}
+
+export default Main;
