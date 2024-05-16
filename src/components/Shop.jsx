@@ -1,5 +1,5 @@
 import Sidebar from "./Sidebar";
-import ItemCards from "./Items";
+import ItemCards from "./ItemCards";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 

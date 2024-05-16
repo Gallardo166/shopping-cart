@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 const Card = function({ product }) {
   return (
     <div className="card">
-      <p>{product.title}</p>
-      <p>{product.price}</p>
-      <p>{product.rating.rate}</p>
+      <h3>{product.title}</h3>
+      <h3>{product.price}</h3>
+      <h3>{product.rating.rate}</h3>
     </div>
   )
 }
