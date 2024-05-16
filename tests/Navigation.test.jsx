@@ -1,8 +1,14 @@
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import routes from "../routes";
+import routes from "../src/routes";
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
+
+window.fetch = vi.fn(() => {
+  const products = [];
+
+  return Promise.resolve({ json: () => Promise.resolve(products) });
+});
 
 describe("navigations", () => {
   describe("navigations from main page", async () => {
@@ -13,48 +19,48 @@ describe("navigations", () => {
 
     it("navigates to shop when clicking 'Shop now' button", async () => {
       render(<RouterProvider router={router} />);
-      const shopNowButton = screen.getByText(/^Shop now$/i);
+      const shopNowButton = await screen.findByText(/^Shop now$/i);
 
       await user.click(shopNowButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("Products");
+      expect(screen.getByRole("heading", {name: /Products/})).toBeInTheDocument();
     });
 
     it("navigates to main page when clicking 'Main' button", async () => {
       render(<RouterProvider router={router} />);
-      const mainButton = screen.getByText(/^Main$/i);
+      const mainButton = await screen.findByText(/^Main$/i);
 
       await user.click(mainButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("LifeStore");
+      expect(screen.getByRole("heading", {name: /LifeStore/})).toBeInTheDocument();
     });
 
     it("navigates to shop page when clicking 'Shop' button", async () => {
       render(<RouterProvider router={router} />);
-      const shopButton = screen.getByText(/^Shop$/i);
+      const shopButton = await screen.findByText(/^Shop$/i);
 
       await user.click(shopButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("Products");
+      expect(screen.getByRole("heading", {name: /Products/})).toBeInTheDocument();
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
       render(<RouterProvider router={router} />);
-      const aboutButton = screen.getByText(/^About$/i);
+      const aboutButton = await screen.findByText(/^About$/i);
 
       await user.click(aboutButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("About us");
-    })
+      expect(screen.getByRole("heading", {name: /About us/})).toBeInTheDocument();
+    });
 
     it("navigates to shopping cart page when clicking cart icon", async () => {
       render(<RouterProvider router={router} />);
-      const cartButton = screen.getByText(/^Cart$/i);
+      const cartButton = await screen.findByText(/^Cart$/i);
 
       await user.click(cartButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("Your cart");
-    })
+      expect(screen.getByRole("heading", {name: /Your cart/})).toBeInTheDocument();
+    });
   });
 
   describe("navigations from shop page", async () => {
@@ -65,7 +71,7 @@ describe("navigations", () => {
 
     it("navigates to main page when clicking 'Main' button", async () => {
       render(<RouterProvider router={router} />);
-      const mainButton = screen.getByText(/^Main$/i);
+      const mainButton = await screen.findByText(/^Main$/i);
 
       await user.click(mainButton);
 
@@ -74,30 +80,31 @@ describe("navigations", () => {
 
     it("navigates to shop page when clicking 'Shop' button", async () => {
       render(<RouterProvider router={router} />);
-      const shopButton = screen.getByText(/^Shop$/i);
+      const shopButton = await screen.findByText(/^Shop$/i);
 
       await user.click(shopButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("Products");
+      expect(screen.getByRole("heading", {name: /Products/})).toBeInTheDocument();
+      expect(screen.getByRole("heading", {name: /Filter/})).toBeInTheDocument();
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
       render(<RouterProvider router={router} />);
-      const aboutButton = screen.getByText(/^About$/i);
+      const aboutButton = await screen.findByText(/^About$/i);
 
       await user.click(aboutButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("About us");
-    })
+      expect(screen.getByRole("heading", {name: /About us/})).toBeInTheDocument();
+    });
 
     it("navigates to shopping cart page when clicking cart icon", async () => {
       render(<RouterProvider router={router} />);
-      const cartButton = screen.getByText(/^Cart$/i);
+      const cartButton = await screen.findByText(/^Cart$/i);
 
       await user.click(cartButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("Your cart");
-    })
+      expect(screen.getByRole("heading", {name: /Your cart/})).toBeInTheDocument();
+    });
   });
 
   describe("navigations from about page", async () => {
@@ -108,7 +115,7 @@ describe("navigations", () => {
 
     it("navigates to main page when clicking 'Main' button", async () => {
       render(<RouterProvider router={router} />);
-      const mainButton = screen.getByText(/^Main$/i);
+      const mainButton = await screen.findByText(/^Main$/i);
 
       await user.click(mainButton);
 
@@ -117,30 +124,31 @@ describe("navigations", () => {
 
     it("navigates to shop page when clicking 'Shop' button", async () => {
       render(<RouterProvider router={router} />);
-      const shopButton = screen.getByText(/^Shop$/i);
+      const shopButton = await screen.findByText(/^Shop$/i);
 
       await user.click(shopButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("Products");
+      expect(screen.getByRole("heading", {name: /Products/})).toBeInTheDocument();
+      expect(screen.getByRole("heading", {name: /Filter/})).toBeInTheDocument();
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
       render(<RouterProvider router={router} />);
-      const aboutButton = screen.getByText(/^About$/i);
+      const aboutButton = await screen.findByText(/^About$/i);
 
       await user.click(aboutButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("About us");
-    })
+      expect(screen.getByRole("heading", {name: /About us/})).toBeInTheDocument();
+    });
 
     it("navigates to shopping cart page when clicking cart icon", async () => {
       render(<RouterProvider router={router} />);
-      const cartButton = screen.getByText(/^Cart$/i);
+      const cartButton = await screen.findByText(/^Cart$/i);
 
       await user.click(cartButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("Your cart");
-    })
+      expect(screen.getByRole("heading", {name: /Your cart/})).toBeInTheDocument();
+    });
   });
 
   describe("navigations from about page", async () => {
@@ -151,7 +159,7 @@ describe("navigations", () => {
 
     it("navigates to main page when clicking 'Main' button", async () => {
       render(<RouterProvider router={router} />);
-      const mainButton = screen.getByText(/^Main$/i);
+      const mainButton = await screen.findByText(/^Main$/i);
 
       await user.click(mainButton);
 
@@ -160,29 +168,30 @@ describe("navigations", () => {
 
     it("navigates to shop page when clicking 'Shop' button", async () => {
       render(<RouterProvider router={router} />);
-      const shopButton = screen.getByText(/^Shop$/i);
+      const shopButton = await screen.findByText(/^Shop$/i);
 
       await user.click(shopButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("Products");
+      expect(screen.getByRole("heading", {name: /Products/})).toBeInTheDocument();
+      expect(screen.getByRole("heading", {name: /Filter/})).toBeInTheDocument();
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
       render(<RouterProvider router={router} />);
-      const aboutButton = screen.getByText(/^About$/i);
+      const aboutButton = await screen.findByText(/^About$/i);
 
       await user.click(aboutButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("About us");
-    })
+      expect(screen.getByRole("heading", {name: /About us/})).toBeInTheDocument();
+    });
 
     it("navigates to shopping cart page when clicking cart icon", async () => {
       render(<RouterProvider router={router} />);
-      const cartButton = screen.getByText(/^Cart$/i);
+      const cartButton = await screen.findByText(/^Cart$/i);
 
       await user.click(cartButton);
 
-      expect(screen.getByRole("heading").textContent).toBe("Your cart");
-    })
+      expect(screen.getByRole("heading", {name: /Your cart/})).toBeInTheDocument();
+    });
   });
 });

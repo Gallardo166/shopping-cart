@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import Main from "./Main";
+import Main from "../src/components/Main";
 import { vi } from "vitest";
 
 vi.mock("react-router-dom", async (importOriginal) => {
