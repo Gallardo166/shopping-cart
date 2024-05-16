@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 
 const Root = function() {
   const [products, setProducts] = useState(null);
+  const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -15,6 +16,26 @@ const Root = function() {
       .finally(() => setLoading(false));
   }, [])
 
+  const handleAddToCart = function(title, id, price, quantity) {
+    if (cart.filter(product => product.id === id).length === 1) {
+      const newCart = [];
+
+      cart.forEach((product) => {
+        if (product.id !== id) {
+          newCart.push(product);
+          return;
+        }
+        newCart.push({...product, quantity: product.quantity + quantity});
+      })
+
+      setCart(newCart);
+      return;
+    }
+
+    const newCart = [...cart, { title, id, price, quantity }];
+    setCart(newCart);
+  }
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error occurred.</p>
 
@@ -23,7 +44,7 @@ const Root = function() {
   return (
     <div>
       <Nav />
-      <Outlet context={products} />
+      <Outlet context={{ products, cart, handleAddToCart }} />
     </div>
   )
 }

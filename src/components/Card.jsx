@@ -1,12 +1,15 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Card = function({ product }) {
   return (
-    <div className="card">
-      <h3>{product.title}</h3>
-      <h3>{product.price}</h3>
-      <h3>{product.rating.rate}</h3>
-    </div>
+    <Link to={`./${product.id}`}>
+      <div className="card">
+        <h3>{product.title}</h3>
+        <h3>{product.price}</h3>
+        <h3>{product.rating.rate}</h3>
+      </div>
+    </Link>
   )
 }
 

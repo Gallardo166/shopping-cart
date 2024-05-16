@@ -1,15 +1,26 @@
 import Sidebar from "./Sidebar";
 import ItemCards from "./ItemCards";
+import ItemInfo from "./ItemInfo";
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 
 const Shop = function () {
   const [category, setCategory] = useState("all");
-  const products = useOutletContext();
+  const { products } = useOutletContext();
+  const { id } = useParams();
 
   const handleChangeCategory = function (category) {
     setCategory(category);
   };
+
+  if (id) {
+    console.log(products.filter(product => product.id === id))
+    return (
+      <main>
+        <ItemInfo product={products.filter(product => product.id === Number(id))[0]}/>
+      </main>
+    )
+  }
 
   return (
     <main>

@@ -4,10 +4,18 @@ const Nav = function() {
   return (
     <nav>
       <ul>
-        <Link to="/">Main</Link>
-        <Link to="/shop">Shop</Link>
-        <Link to="/about">About</Link>
-        <Link to="/cart">Cart</Link>
+        <li>
+          <Link to="/">Main</Link>
+        </li>
+        <li>
+          <Link to="/shop">Shop</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/cart">Cart</Link>
+        </li>
       </ul>
     </nav>
   )
