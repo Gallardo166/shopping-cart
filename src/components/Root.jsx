@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import Nav from "./Nav";
 import { Outlet } from "react-router-dom";
+
+export const Data = createContext({});
 
 const Root = function() {
   const [products, setProducts] = useState(null);
@@ -34,6 +36,11 @@ const Root = function() {
 
     const newCart = [...cart, { title, id, price, quantity }];
     setCart(newCart);
+  };
+
+  const handleDeleteCartItem = function(id) {
+    const newCart = cart.filter(product => product.id !== id);
+    setCart(newCart);
   }
 
   if (loading) return <p>Loading...</p>;
@@ -44,7 +51,9 @@ const Root = function() {
   return (
     <div>
       <Nav />
-      <Outlet context={{ products, cart, handleAddToCart }} />
+      <Data.Provider value={{ products, cart, handleAddToCart, handleDeleteCartItem }}>
+        <Outlet />
+      </Data.Provider>
     </div>
   )
 }

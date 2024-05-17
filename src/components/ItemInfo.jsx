@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Data } from "./Root";
 
 const ItemInfo = function ({ product }) {
   const [quantity, setQuantity] = useState(1);
   const [currentInterval, setCurrentInterval] = useState(null);
-  const { handleAddToCart } = useOutletContext();
+  const { handleAddToCart } = useContext(Data);
 
   return (
     <>
@@ -40,11 +40,10 @@ const ItemInfo = function ({ product }) {
         id="quantity"
         value={quantity}
         onChange={(e) => {
-          console.log(e.target.value);
           setQuantity(Number(e.target.value));
         }}
         onBlur={(e) => {
-          if (e.target.value === "" || e.target.value === "0") {
+          if (e.target.value === "" || e.target.value.includes("0")) {
             setQuantity(1);
             return;
           }

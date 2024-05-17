@@ -1,12 +1,13 @@
 import Sidebar from "./Sidebar";
 import ItemCards from "./ItemCards";
 import ItemInfo from "./ItemInfo";
-import { useState } from "react";
-import { useOutletContext, useParams } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Data } from "./Root";
+import { useParams } from "react-router-dom";
 
 const Shop = function () {
   const [category, setCategory] = useState("all");
-  const { products } = useOutletContext();
+  const { products } = useContext(Data);
   const { id } = useParams();
 
   const handleChangeCategory = function (category) {
