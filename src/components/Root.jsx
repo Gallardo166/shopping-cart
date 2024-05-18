@@ -18,7 +18,7 @@ const Root = function() {
       .finally(() => setLoading(false));
   }, [])
 
-  const handleAddToCart = function(title, id, price, quantity) {
+  const handleAddToCart = function(title, id, image, price, quantity) {
     if (cart.filter(product => product.id === id).length === 1) {
       const newCart = [];
 
@@ -34,7 +34,7 @@ const Root = function() {
       return;
     }
 
-    const newCart = [...cart, { title, id, price, quantity }];
+    const newCart = [...cart, { title, id, image, price, quantity }];
     setCart(newCart);
   };
 

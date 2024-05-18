@@ -23,7 +23,6 @@ window.fetch = vi.fn(() => {
 vi.mock("react-router-dom", async (importOriginal) => {
   return {
     ...await importOriginal(),
-    useOutletContext: () => ({ products: [mockedProduct], handleAddToCart: vi.fn() }),
     useParams: () => ({ id: "0" })
   }
 });
@@ -65,6 +64,6 @@ describe("item card", () => {
     await user.click(cartLink);
 
     expect(screen.getByRole("heading", { name: /^mocked product$/})).toBeInTheDocument;
-    expect(screen.getByText("1")).toBeInTheDocument();
+    expect(screen.getByDisplayValue(1)).toBeInTheDocument();
   })
 })

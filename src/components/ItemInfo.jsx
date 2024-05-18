@@ -68,7 +68,7 @@ const ItemInfo = function ({ product }) {
       >
         +
       </button>
-      <button onClick={() => handleAddToCart(product.title, product.id, product.price, quantity)}>Add to cart</button>
+      <button onClick={() => handleAddToCart(product.title, product.id, product.image, product.price, quantity)}>Add to cart</button>
     </>
   );
 };
