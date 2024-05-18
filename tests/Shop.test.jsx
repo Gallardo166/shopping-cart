@@ -59,7 +59,7 @@ vi.mock("../src/components/Card", () => {
 describe("filter products", () => {
   it("shows all products initially", () => {
     render(
-    <Data.Provider value={{products: mockedProducts}}>
+    <Data.Provider value={{products: mockedProducts}}>\
       <BrowserRouter>
         <Shop />
       </BrowserRouter>
@@ -68,6 +68,24 @@ describe("filter products", () => {
 
     expect(screen.queryByText(/Electronics product/)).toBeInTheDocument();
     expect(screen.queryByText(/Jewelery product/)).toBeInTheDocument();
+    expect(screen.queryByText(/Men's clothing product/)).toBeInTheDocument();
+    expect(screen.queryByText(/Women's clothing product/)).toBeInTheDocument();
+  })
+
+  it("shows only items that are searched", async () => {
+    const user = userEvent.setup();
+    render(
+    <Data.Provider value={{products: mockedProducts}}>
+      <BrowserRouter>
+        <Shop />
+      </BrowserRouter>
+    </Data.Provider>
+    );
+    const queryInput = screen.getByRole("textbox");
+    await user.type(queryInput, "clo");
+
+    expect(screen.queryByText(/Electronics product/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Jewelery product/)).not.toBeInTheDocument();
     expect(screen.queryByText(/Men's clothing product/)).toBeInTheDocument();
     expect(screen.queryByText(/Women's clothing product/)).toBeInTheDocument();
   })
