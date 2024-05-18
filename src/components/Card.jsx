@@ -5,6 +5,7 @@ const Card = function ({ product }) {
   return (
     <Link to={`./${product.id}`}>
       <div className="card">
+        <img src={product.image} alt={product.title} width={160}/>
         <h3>{product.title}</h3>
         <h3>{product.price}</h3>
         <h3>{product.rating.rate}</h3>
