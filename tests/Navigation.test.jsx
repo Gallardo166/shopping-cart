@@ -12,12 +12,12 @@ window.fetch = vi.fn(() => {
 
 describe("navigations", () => {
   describe("navigations from main page", async () => {
-    const router = createMemoryRouter(routes, {
-      initialEntries: ["/"],
-    });
     const user = userEvent.setup();
 
     it("navigates to shop when clicking 'Shop now' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const shopNowButton = await screen.findByText(/^Shop now$/i);
 
@@ -27,8 +27,11 @@ describe("navigations", () => {
     });
 
     it("navigates to main page when clicking 'Main' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
-      const mainButton = await screen.findByText(/^Main$/i);
+      const mainButton = await screen.findByRole("img", { name: "logo" });
 
       await user.click(mainButton);
 
@@ -36,6 +39,9 @@ describe("navigations", () => {
     });
 
     it("navigates to shop page when clicking 'Shop' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });  
       render(<RouterProvider router={router} />);
       const shopButton = await screen.findByText(/^Shop$/i);
 
@@ -45,6 +51,9 @@ describe("navigations", () => {
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const aboutButton = await screen.findByText(/^About$/i);
 
@@ -54,6 +63,9 @@ describe("navigations", () => {
     });
 
     it("navigates to shopping cart page when clicking cart icon", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const cartButton = await screen.findByText(/^Cart$/i);
 
@@ -64,14 +76,14 @@ describe("navigations", () => {
   });
 
   describe("navigations from shop page", async () => {
-    const router = createMemoryRouter(routes, {
-      initialEntries: ["/shop"],
-    });
     const user = userEvent.setup();
 
     it("navigates to main page when clicking 'Main' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
-      const mainButton = await screen.findByText(/^Main$/i);
+      const mainButton = await screen.findByRole("img", { name: "logo" });
 
       await user.click(mainButton);
 
@@ -79,6 +91,9 @@ describe("navigations", () => {
     });
 
     it("navigates to shop page when clicking 'Shop' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const shopButton = await screen.findByText(/^Shop$/i);
 
@@ -89,6 +104,9 @@ describe("navigations", () => {
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const aboutButton = await screen.findByText(/^About$/i);
 
@@ -98,6 +116,9 @@ describe("navigations", () => {
     });
 
     it("navigates to shopping cart page when clicking cart icon", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const cartButton = await screen.findByText(/^Cart$/i);
 
@@ -108,14 +129,14 @@ describe("navigations", () => {
   });
 
   describe("navigations from about page", async () => {
-    const router = createMemoryRouter(routes, {
-      initialEntries: ["/about"],
-    });
     const user = userEvent.setup();
 
     it("navigates to main page when clicking 'Main' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
-      const mainButton = await screen.findByText(/^Main$/i);
+      const mainButton = await screen.findByRole("img", { name: "logo" });
 
       await user.click(mainButton);
 
@@ -123,6 +144,9 @@ describe("navigations", () => {
     });
 
     it("navigates to shop page when clicking 'Shop' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const shopButton = await screen.findByText(/^Shop$/i);
 
@@ -133,6 +157,9 @@ describe("navigations", () => {
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const aboutButton = await screen.findByText(/^About$/i);
 
@@ -142,6 +169,9 @@ describe("navigations", () => {
     });
 
     it("navigates to shopping cart page when clicking cart icon", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const cartButton = await screen.findByText(/^Cart$/i);
 
@@ -151,15 +181,15 @@ describe("navigations", () => {
     });
   });
 
-  describe("navigations from about page", async () => {
-    const router = createMemoryRouter(routes, {
-      initialEntries: ["/cart"],
-    });
+  describe("navigations from cart page", async () => {
     const user = userEvent.setup();
 
     it("navigates to main page when clicking 'Main' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
-      const mainButton = await screen.findByText(/^Main$/i);
+      const mainButton = await screen.findByRole("img", { name: "logo" });
 
       await user.click(mainButton);
 
@@ -167,6 +197,9 @@ describe("navigations", () => {
     });
 
     it("navigates to shop page when clicking 'Shop' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const shopButton = await screen.findByText(/^Shop$/i);
 
@@ -177,6 +210,9 @@ describe("navigations", () => {
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const aboutButton = await screen.findByText(/^About$/i);
 
@@ -186,6 +222,9 @@ describe("navigations", () => {
     });
 
     it("navigates to shopping cart page when clicking cart icon", async () => {
+      const router = createMemoryRouter(routes, {
+        initialEntries: ["/"],
+      });
       render(<RouterProvider router={router} />);
       const cartButton = await screen.findByText(/^Cart$/i);
 

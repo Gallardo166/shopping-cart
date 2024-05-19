@@ -1,0 +1,38 @@
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Medium.ttf);
+}
+
+.navbar {
+  margin: 0 auto;
+  width: 90%;
+  margin-bottom: 36px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #818685;
+}
+
+.ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  gap: 12px;
+}
+
+.link {
+  color: #022c22;
+  font-family: plus-jakarta;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.icon {
+  width: 34px;
+  filter: invert(52%) sepia(67%) saturate(1933%) hue-rotate(123deg) brightness(95%) contrast(87%);
+}
