@@ -1,5 +1,6 @@
 import { useEffect, useState, createContext } from "react";
 import Nav from "./Nav";
+import Notification from "./Notification";
 import { Outlet } from "react-router-dom";
 
 export const Data = createContext({});
@@ -7,6 +8,7 @@ export const Data = createContext({});
 const Root = function() {
   const [products, setProducts] = useState(null);
   const [cart, setCart] = useState([]);
+  const [recentPurchase, setRecentPurchase] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -43,6 +45,11 @@ const Root = function() {
     setCart(newCart);
   }
 
+  const handleRecentPurchase = function(title, quantity) {
+    const newRecentPurchase = [title, quantity];
+    setRecentPurchase(newRecentPurchase);
+  }
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error occurred.</p>
 
@@ -51,9 +58,10 @@ const Root = function() {
   return (
     <div>
       <Nav />
-      <Data.Provider value={{ products, cart, handleAddToCart, handleDeleteCartItem }}>
+      <Data.Provider value={{ products, cart, handleAddToCart, handleDeleteCartItem, handleRecentPurchase }}>
         <Outlet />
       </Data.Provider>
+      <Notification recentPurchase={recentPurchase}  />
     </div>
   )
 }

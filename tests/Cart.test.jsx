@@ -49,6 +49,12 @@ window.fetch = vi.fn(() => {
 
 const useParams = vi.fn();
 
+vi.mock("../src/components/Notification", () => {
+  return {
+    default: vi.fn(),
+  }
+})
+
 describe("cart", () => {
   it("shows total price", () => {
     render(

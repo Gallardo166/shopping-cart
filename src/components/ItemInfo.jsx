@@ -5,7 +5,7 @@ import { Data } from "./Root";
 const ItemInfo = function ({ product }) {
   const [quantity, setQuantity] = useState(1);
   const [currentInterval, setCurrentInterval] = useState(null);
-  const { handleAddToCart } = useContext(Data);
+  const { handleAddToCart, handleRecentPurchase } = useContext(Data);
 
   return (
     <>
@@ -68,7 +68,10 @@ const ItemInfo = function ({ product }) {
       >
         +
       </button>
-      <button onClick={() => handleAddToCart(product.title, product.id, product.image, product.price, quantity)}>Add to cart</button>
+      <button onClick={() => {
+        handleAddToCart(product.title, product.id, product.image, product.price, quantity)
+        handleRecentPurchase(product.title, quantity);
+        }}>Add to cart</button>
     </>
   );
 };

@@ -14,7 +14,7 @@ const Cart = function () {
         <div key={product.id}>
           <img src={product.image} alt={product.title} width={150}/>
           <h2>{product.title}</h2>
-          <p>${product.price * product.quantity}</p>
+          <p>{product.quantity} x ${product.price}: ${product.price * product.quantity}</p>
           <button
             onClick={() => {
               const input = document.getElementById(product.id);

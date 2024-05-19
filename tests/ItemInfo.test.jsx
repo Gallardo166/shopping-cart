@@ -27,6 +27,12 @@ vi.mock("react-router-dom", async (importOriginal) => {
   }
 });
 
+vi.mock("../src/components/Notification", () => {
+  return {
+    default: vi.fn(),
+  }
+})
+
 describe("item card", () => {
   it("changes the quantity", async () => {
     const user = userEvent.setup();
