@@ -1,0 +1,49 @@
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Bold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Medium.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Light.ttf);
+  font-weight: 200;
+}
+
+.notification {
+  margin: 0;
+  position: absolute;
+  left:8px;
+  bottom: 8px;
+  font-family: plus-jakarta;
+  font-weight: 200;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.hide {
+  opacity: 0;
+  transition: opacity ease-out 1000ms;
+}
+
+.slideIn {
+  animation: slide-in 300ms ease-in forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-500px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}

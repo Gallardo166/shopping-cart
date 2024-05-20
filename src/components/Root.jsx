@@ -1,7 +1,7 @@
 import { useEffect, useState, createContext } from "react";
 import Nav from "./Nav";
 import Notification from "./Notification";
-import { Outlet } from "react-router-dom"; 
+import { Outlet } from "react-router-dom";
 
 export const Data = createContext({});
 
