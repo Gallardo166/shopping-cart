@@ -35,12 +35,12 @@
 @media screen and (min-width: 600px) {
   .sidebar {
     margin-top: -8px;
-    max-width: 200px;
+    min-width: 180px;
     border-right: 1px solid #c7cbca;
   }
 
   .sidebar, .fieldset {
-    height: 73vh;
+    height: 76vh;
   }
 
   .fieldset {

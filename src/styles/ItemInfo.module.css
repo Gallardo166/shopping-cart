@@ -1,0 +1,139 @@
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Bold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Medium.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Light.ttf);
+  font-weight: 200;
+}
+
+.main {
+  margin: 0 auto;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  font-family: plus-jakarta;
+}
+
+.image {
+  margin: 24px 0;
+  align-self: center;
+}
+
+.title {
+  margin: 8px 0;
+  line-height: 32px;
+}
+
+.maxRate {
+  font-size: 0.9rem;
+  font-weight: 200;
+}
+
+.container {
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quantityContainer {
+  display: flex;
+  align-items: center;
+}
+
+.quantity {
+  margin-right: 8px;
+}
+
+.quantityButton {
+  padding: 5.8px 10px;
+  outline: none;
+  border: 1px solid #a3a3a3;
+  background-color: transparent
+}
+
+.quantityInput {
+  padding: 5px;
+  appearance: none;
+  border: none;
+  border-top: 1px solid #a3a3a3;
+  border-bottom: 1px solid #a3a3a3;
+  border-radius: 0;
+  font-family: plus-jakarta;
+}
+
+.quantityInput::-webkit-outer-spin-button, .quantityInput::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.addToCartButton {
+  font-family: plus-jakarta;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  color: #ecfdf5;
+  text-decoration: none;
+  background: linear-gradient(135deg, #2d82d2, #b741da);
+}
+
+.quantityButton:hover, .addToCartButton:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+  .main {
+    display: grid;
+    grid-template: 3fr 1fr 1fr 3fr / repeat(2, 1fr);
+  }
+
+  .image {
+    grid-area: 1 / 1 / span 3 / span 1;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .title {
+    grid-area: 1 / 2 span 1 / span 1;
+    margin-top: 42px;
+  }
+
+  .rating {
+    margin: 0;
+    grid-area: 2 / 2 / span 1 / span 1;
+    justify-self: start;
+  }
+
+  .quantityContainer {
+    grid-area: 3 / 2 / span 1 / span 1;
+  }
+
+  .description {
+    grid-area: 4 / 1 / span 1 / span 2;
+  }
+  
+  .quantityInput {
+    width: 48px;
+  }
+
+  .addToCartButton {
+    margin-right: 16px;
+    padding: 8px 10px;
+  }
+
+  .description {
+    margin-top: 38px;
+  }
+}

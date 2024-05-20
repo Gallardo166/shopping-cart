@@ -24,11 +24,9 @@ const Shop = function () {
 
   if (id) {
     return (
-      <main>
-        <ItemInfo
-          product={products.filter((product) => product.id === Number(id))[0]}
-        />
-      </main>
+      <ItemInfo
+        product={products.filter((product) => product.id === Number(id))[0]}
+      />
     );
   }
 
@@ -36,7 +34,12 @@ const Shop = function () {
     <main className={styles.main}>
       <div className={styles.search}>
         <label className={styles.searchLabel} htmlFor="search">
-          <img className={styles.searchIcon} src="./public/magnify.svg" alt="Search icon" aria-label="Search" />
+          <img
+            className={styles.searchIcon}
+            src="./public/magnify.svg"
+            alt="Search icon"
+            aria-label="Search"
+          />
         </label>
         <input
           id="search"
