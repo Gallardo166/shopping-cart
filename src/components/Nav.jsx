@@ -7,7 +7,7 @@ const Nav = function() {
       <ul className={styles.ul}>
         <li>
           <Link className={styles.link} to="/">
-            <img src="./public/spa.svg" alt="logo" className={styles.icon} aria-label="logo" />
+            <img src="/spa.svg" alt="logo" className={styles.icon} aria-label="logo" />
           </Link>
         </li>
         <div className={styles.container}>

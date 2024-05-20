@@ -36,7 +36,7 @@ const Shop = function () {
         <label className={styles.searchLabel} htmlFor="search">
           <img
             className={styles.searchIcon}
-            src="./public/magnify.svg"
+            src="/magnify.svg"
             alt="Search icon"
             aria-label="Search"
           />

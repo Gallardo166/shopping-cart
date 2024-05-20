@@ -1,0 +1,18 @@
+.text {
+  width: 120px;
+  margin: 80px auto;
+  font-family: plus-jakarta;
+}
+
+.container {
+  margin: 80px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: plus-jakarta;
+}
+
+.link {
+  text-decoration: none;
+  color: #147b63;
+}

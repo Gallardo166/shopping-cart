@@ -2,6 +2,7 @@ import { useEffect, useState, createContext } from "react";
 import Nav from "./Nav";
 import Notification from "./Notification";
 import { Outlet } from "react-router-dom";
+import styles from "../styles/Root.module.css";
 
 export const Data = createContext({});
 
@@ -50,8 +51,8 @@ const Root = function() {
     setRecentPurchase(newRecentPurchase);
   }
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error occurred.</p>
+  if (loading) return <p className={styles.text}>Loading...</p>;
+  if (error) return <p className={styles.text}>A network error occurred.</p>
 
   return (
     <div>
