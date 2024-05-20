@@ -31,6 +31,10 @@
   height:fit-content
 }
 
+.information {
+  flex-grow: 1;
+}
+
 .title {
   font-size: 1.2rem;
 }

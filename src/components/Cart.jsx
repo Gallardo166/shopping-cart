@@ -15,7 +15,7 @@ const Cart = function () {
         {cart.map((product) => (
           <div key={product.id} className={styles.product}>
             <img src={product.image} alt={product.title} className={styles.image}/>
-            <div className={product.information}>
+            <div className={styles.information}>
               <h2 className={styles.title}>{product.title}</h2>
               <p className={styles.price}>{product.quantity} x ${product.price}: ${Math.floor(product.price * product.quantity * 100) / 100}</p>
               <div className={styles.container}>
