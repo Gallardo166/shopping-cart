@@ -13,7 +13,7 @@ const Main = function() {
       </Link>
       <picture className={styles.picture}>
         <source srcSet="/images/nature.jpg" media="(max-width: 600px)" />
-        <source srcSet="=/images/nature-cropped.jpg" />
+        <source srcSet="/images/nature-cropped.jpg" />
         <img src="/images/nature.jpg" alt="" className={styles.image} />
       </picture>
     </main>
