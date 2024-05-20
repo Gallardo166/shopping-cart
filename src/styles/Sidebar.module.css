@@ -1,0 +1,56 @@
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-ExtraBold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Medium.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Light.ttf);
+  font-weight: 200;
+}
+
+.sidebar {
+  margin-top: 24px;
+  font-family: plus-jakarta;
+}
+
+.options {
+  display: grid;
+  grid-template: repeat(2, 1fr) / auto;
+  grid-auto-flow: column;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 200;
+}
+
+@media screen and (min-width: 600px) {
+  .sidebar {
+    margin-top: -8px;
+    max-width: 200px;
+    border-right: 1px solid #c7cbca;
+  }
+
+  .sidebar, .fieldset {
+    height: 73vh;
+  }
+
+  .fieldset {
+    border: none;
+  }
+
+  .options {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

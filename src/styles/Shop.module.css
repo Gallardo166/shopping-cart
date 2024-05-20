@@ -1,0 +1,87 @@
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-ExtraBold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Medium.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Light.ttf);
+  font-weight: 200;
+}
+
+.main {
+  margin: 8px auto;
+  width: 90vw;
+  display: grid;
+  grid-template-rows: 40px 140px 100px;
+}
+
+.search {
+  grid-area: 1 / 1 / span 1 / span 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.searchLabel {
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  transform: translateX(10px);
+  width: 26px;
+  filter: invert(27%) sepia(14%) saturate(3678%) hue-rotate(99deg) brightness(97%) contrast(83%);
+}
+
+.searchInput {
+  width: 70%;
+  height: 24px;
+  padding-left: 28px;
+  font-size: 1rem;
+  font-family: plus-jakarta;
+  font-weight: 200;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #99c6ab;
+  transition: border ease-in-out 100ms;
+}
+
+.searchInput:focus {
+  border: 2px solid #619174;
+  transition: border ease-in-out 100ms;
+}
+
+.products {
+  height: 65vh;
+  overflow-y: scroll;
+  padding: 5px;
+  grid-area: 3 / 1 / span 1 / span 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+@media screen and (min-width: 600px) {
+  .main {
+    grid-template: 100px 1fr / 1fr 4fr;
+    column-gap: 16px;
+  }
+
+  .search {
+    grid-area: 1 / 1 / span 1 / span 2;
+  }
+
+  .products {
+    grid-area: 2 / 2 / span 1 / span 1;
+    height: 73vh;
+  }
+}

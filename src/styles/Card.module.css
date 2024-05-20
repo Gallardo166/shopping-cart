@@ -1,0 +1,89 @@
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-ExtraBold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Medium.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Light.ttf);
+  font-weight: 200;
+}
+
+.link {
+  text-decoration: none;
+  color:#022c22;
+}
+
+.card {
+  border: 1px solid #a3a3a3;
+  border-radius: 6px;
+  height: 100%;
+  max-height: 380px;
+  font-family: plus-jakarta;
+  display: flex;
+  flex-direction: column;
+  transform: scale(100%);
+  transition: transform ease-in-out 100ms;
+}
+
+.card:hover {
+  transform: scale(102%);
+  transition: transform ease-in-out 100ms;
+}
+
+.imageContainer {
+  align-self: center;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  transform: scale(70%);
+}
+
+.information {
+  border-top: 1px solid #a3a3a3;
+  align-self: center;
+  width: 100%;
+  box-sizing: border-box;
+  height: 140px;
+  padding: 14px;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+}
+
+.title {
+  grid-area: 1 / 1 / span 1 / span 2;
+  margin: 0 0 24px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  height: 64px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.dollar, .maxRate {
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.price {
+  grid-area: 2 / 2 / span 1 / span 1;
+  justify-self: end;
+}
+
+.price, .rating {
+  margin: 0;
+}

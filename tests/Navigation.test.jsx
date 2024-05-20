@@ -23,7 +23,7 @@ describe("navigations", () => {
 
       await user.click(shopNowButton);
 
-      expect(screen.getByRole("heading", {name: /Products/})).toBeInTheDocument();
+      expect(screen.getByRole("legend", {name: /Categories/})).toBeInTheDocument();
     });
 
     it("navigates to main page when clicking 'Main' button", async () => {
@@ -47,7 +47,7 @@ describe("navigations", () => {
 
       await user.click(shopButton);
 
-      expect(screen.getByRole("heading", {name: /Products/})).toBeInTheDocument();
+      expect(screen.getByRole("legend", {name: /Categories/})).toBeInTheDocument();
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
@@ -99,8 +99,7 @@ describe("navigations", () => {
 
       await user.click(shopButton);
 
-      expect(screen.getByRole("heading", {name: /Products/})).toBeInTheDocument();
-      expect(screen.getByRole("heading", {name: /Filter/})).toBeInTheDocument();
+      expect(screen.getByRole("legend", {name: /Categories/})).toBeInTheDocument();
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
@@ -152,8 +151,7 @@ describe("navigations", () => {
 
       await user.click(shopButton);
 
-      expect(screen.getByRole("heading", {name: /Products/})).toBeInTheDocument();
-      expect(screen.getByRole("heading", {name: /Filter/})).toBeInTheDocument();
+      expect(screen.getByRole("legend", {name: /Categories/})).toBeInTheDocument();
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
@@ -205,8 +203,7 @@ describe("navigations", () => {
 
       await user.click(shopButton);
 
-      expect(screen.getByRole("heading", {name: /Products/})).toBeInTheDocument();
-      expect(screen.getByRole("heading", {name: /Filter/})).toBeInTheDocument();
+      expect(screen.getByRole("legend", {name: /Categories/})).toBeInTheDocument();
     });
 
     it("navigates to about page when clicking 'About' button", async () => {
