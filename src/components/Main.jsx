@@ -12,9 +12,9 @@ const Main = function() {
         Shop now
       </Link>
       <picture className={styles.picture}>
-        <source srcSet="./src/assets/images/nature.jpg" media="(max-width: 600px)" />
-        <source srcSet="./src/assets/images/nature-cropped.jpg" />
-        <img src="./src/assets/images/nature.jpg" alt="" className={styles.image} />
+        <source srcSet="/images/nature.jpg" media="(max-width: 600px)" />
+        <source srcSet="=/images/nature-cropped.jpg" />
+        <img src="/images/nature.jpg" alt="" className={styles.image} />
       </picture>
     </main>
   )
