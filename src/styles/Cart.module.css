@@ -10,7 +10,7 @@
 
 .products {
   margin-bottom: 32px;
-  height: 56vh;
+  height: 53vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
