@@ -1,8 +1,24 @@
-# React + Vite
+# Shopping Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Concepts Learnt
 
-Currently, two official plugins are available:
+1. More React concepts
+  - React router for Single-Page applications
+  - React testing and mocking with Vitest
+  - Prop validation
+  - `useContext` hook
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. CSS Modules
+
+### Concepts applied
+
+1. Basic React concepts
+ - `useState`, `useEffect` hooks
+ - React props and state
+ - HTML, CSS and JS
+
+### Areas for improvement
+
+1. React testing
+  - Plan on what to test and how to separate the tests into different test files
+  - Be more familiar with when to mock callbacks and child components
