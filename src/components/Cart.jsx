@@ -5,7 +5,7 @@ import styles from "../styles/Cart.module.css";
 const Cart = function () {
   const { cart, handleAddToCart, handleDeleteCartItem } = useContext(Data);
   const totalPrice = cart.reduce((total, product) => {
-    return (total + (Math.floor(product.price * product.quantity * 100) / 100))
+    return total + Math.floor(product.price * product.quantity * 100) / 100;
   }, 0);
 
   return (
@@ -14,10 +14,19 @@ const Cart = function () {
       <div className={styles.products}>
         {cart.map((product) => (
           <div key={product.id} className={styles.product}>
-            <img src={product.image} alt={product.title} className={styles.image}/>
+            <div className={styles.imageContainer}>
+              <img
+                src={product.image}
+                alt={product.title}
+                className={styles.image}
+              />
+            </div>
             <div className={styles.information}>
               <h2 className={styles.title}>{product.title}</h2>
-              <p className={styles.price}>{product.quantity} x ${product.price}: ${Math.floor(product.price * product.quantity * 100) / 100}</p>
+              <p className={styles.price}>
+                {product.quantity} x ${product.price}: $
+                {Math.floor(product.price * product.quantity * 100) / 100}
+              </p>
               <div className={styles.container}>
                 <div className={styles.quantityContainer}>
                   <button
@@ -25,7 +34,13 @@ const Cart = function () {
                     onClick={() => {
                       const input = document.getElementById(product.id);
                       if (input.value === "1") return;
-                      handleAddToCart(product.title, product.id, product.image, product.price, -1);
+                      handleAddToCart(
+                        product.title,
+                        product.id,
+                        product.image,
+                        product.price,
+                        -1
+                      );
                     }}
                   >
                     -
@@ -62,14 +77,21 @@ const Cart = function () {
                           product.id,
                           product.image,
                           product.price,
-                          Number(e.target.value.replace("0", "")) - product.quantity
+                          Number(e.target.value.replace("0", "")) -
+                            product.quantity
                         );
                     }}
                   />
                   <button
                     className={styles.quantityButton}
                     onClick={() => {
-                      handleAddToCart(product.title, product.id, product.image, product.price, 1);
+                      handleAddToCart(
+                        product.title,
+                        product.id,
+                        product.image,
+                        product.price,
+                        1
+                      );
                     }}
                   >
                     +
@@ -80,7 +102,9 @@ const Cart = function () {
                   onClick={() => {
                     handleDeleteCartItem(product.id);
                   }}
-                >Delete Item</button>
+                >
+                  Delete Item
+                </button>
               </div>
             </div>
           </div>

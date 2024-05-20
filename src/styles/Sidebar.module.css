@@ -1,5 +1,5 @@
 .sidebar {
-  margin-top: 24px;
+  margin: 28px 0;
   font-family: plus-jakarta;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .label {
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   font-weight: 200;
 }
 
@@ -38,5 +38,9 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+
+  .label {
+    font-size: 0.9rem;
   }
 }
