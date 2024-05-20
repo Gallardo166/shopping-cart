@@ -6,8 +6,20 @@
 
 @font-face {
   font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Bold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: plus-jakarta;
   src: url(../assets/fonts/PlusJakartaSans-Medium.ttf);
   font-weight: 400;
+}
+
+@font-face {
+  font-family: plus-jakarta;
+  src: url(../assets/fonts/PlusJakartaSans-Light.ttf);
+  font-weight: 200;
 }
 
 .main {

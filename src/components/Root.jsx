@@ -53,8 +53,6 @@ const Root = function() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error occurred.</p>
 
-  console.log(products);
-
   return (
     <div>
       <Nav />
